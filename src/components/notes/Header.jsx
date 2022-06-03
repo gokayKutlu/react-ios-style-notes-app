@@ -2,10 +2,13 @@ import React from 'react'
 import {BsPlusLg} from 'react-icons/bs';
 import {useDispatch} from 'react-redux';
 
-import {toggleAddingNewNote} from '../../stores/notesSlicer';
+import {toggleAddingNewNote, setCurrentNoteTitle, setCurrentNoteBody, setEditingNoteID} from '../../stores/notesSlice';
 
 const handleAddNote = (dispatch) => {
   dispatch(toggleAddingNewNote());
+  dispatch(setCurrentNoteTitle(''));
+  dispatch(setCurrentNoteBody(''));
+  dispatch(setEditingNoteID(null));
 }
 
 const Header = () => {
