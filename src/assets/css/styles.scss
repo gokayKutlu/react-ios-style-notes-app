@@ -1,5 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;700&display=swap');
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
+	font-family: 'Roboto', sans-serif;
+	transition: all 0.2s ease;
+}
+$addNewButtonBG: #738569;
+
+#wrapper {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #3b403c;
+
+	// light mode
+	&.light {
+		background-color: #FCFCFF;
+
+		.container {
+			color: black;
+			background-color: #faf9cf;
+
+			#add-new {
+				background-color: #b0af89 !important;
+			}
+
+			#dark-mode-toggler {
+				color: black;
+			}
+		}
+	}
+
+	.container {
+		width: min(1200px, 100%);
+		height: 100%;
+		background-color: #4e524f;
+		display: flex;
+
+		#dark-mode-toggler {
+			position: absolute;
+			bottom: 5px;
+			right: 5px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5em;
+			background: none;
+			border: none;
+			color: white;
+			cursor: pointer;
+		}
+
+		#current-note {
+			flex-grow: 1;
+			padding: .5em;
+
+			.add-edit-note {
+				header {
+					padding: .5em;
+					border-bottom: 1px dotted black;
+					display: flex;
+
+					.buttons {
+						padding: 0 2em;
+						display: flex;
+						justify-content: flex-end;
+						flex-grow: 1;
+						button {
+							display: flex;
+							align-items: center;
+							justify-content: center;
+							background: none;
+							border: none;
+							font-size: 1.5em;
+							cursor: pointer;
+						}
+					}
+				}
+
+				#add-edit-form {
+					padding: .5em 0;
+					display: flex;
+					flex-direction: column;
+					gap: .5em;
+
+					input {
+						border: none;
+						background: none;
+						outline: none;
+						width: 100%;
+						border-bottom: 1px solid #3b403c;
+						padding: .5em 0;
+						color: black;
+						font-size: 1.3em;
+					}
+				}
+			}
+		}
+
+		#notes {
+			border-right: 1px solid black;
+			min-width: 250px;
+			overflow-y: auto;
+
+			header {
+				padding: 0.5em 0;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				border-bottom: 1px dotted black;
+
+				#add-new {
+					padding: 0.5em;
+					border: none;
+					background-color: $addNewButtonBG;
+					font-weight: bold;
+					border-radius: 0.25em;
+					transition: 0.3s;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+
+					&:hover {
+						cursor: pointer;
+						filter: brightness(120%);
+					}
+				}
+			}
+
+			.note-box {
+				border-top: 1px solid black;
+				border-bottom: 1px solid black;
+			}
+		}
+
+		#current-note,
+		#notes {
+			padding: 0.5em;
+		}
+	}
 }
